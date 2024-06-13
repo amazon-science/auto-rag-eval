@@ -133,6 +133,21 @@ It contains a code file preprocess_exam,py for prompt templates and more importa
 
 The script`task_evaluation.sh` provided illustrates the evalation of `Llamav2:Chat:13B` and `Llamav2:Chat:70B` on the task, using In-Context-Learning (ICL) with respectively 0, 1 and 2 samples.
 
+## Citation
+
+To cite this work, please use
+```bash
+@misc{autorageval2024,
+      title={Automated Evaluation of Retrieval-Augmented Language Models with Task-Specific Exam Generation}, 
+      author={Gauthier Guinet and Behrooz Omidvar-Tehrani and Anoop Deoras and Laurent Callot},
+      year={2024},
+      eprint={2405.13622},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
+
+
 ## Security
 
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
