@@ -1,6 +1,6 @@
 # Automated Evaluation of Retrieval-Augmented Language Models with Task-Specific Exam Generation
 
-This repository is the companion of the ICML 2024 paper [Automated Evaluation of Retrieval-Augmented Language Models with Task-Specific Exam Generation](https://arxiv.org/abs/2405.13622)
+This repository is the companion of the ICML 2024 paper [Automated Evaluation of Retrieval-Augmented Language Models with Task-Specific Exam Generation](https://arxiv.org/abs/2405.13622) ([Blog](https://www.amazon.science/blog/automated-evaluation-of-rag-pipelines-with-exam-generation))
 
 <p align="center">
   <img src="images/generation_summary.png" alt="Alt Text" width="800"/>
