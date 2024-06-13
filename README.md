@@ -7,8 +7,8 @@ This repository is the companion of the ICML 2024 paper [Automated Evaluation of
 </p>
 
 **Goal**: For a given knowledge corpus:
-* Leverage an LLM to generate an multi-choice exam associated with the task of interest
-* Evaluate variants of RaG systems on this exam
+* Leverage an LLM to generate an multi-choice exam associated with the task of interest.
+* Evaluate variants of RaG systems on this exam.
 * Evaluate and iteratively improve the exam.
 
 The only thing you need to experiment with this code is a `json` file with your knowledge corpus in the format described bellow.
@@ -112,7 +112,7 @@ python3 -m ExamGenerator.multi_choice_exam --task-domain MyOwnTask  --question-d
 
 ### Bring your own LLM
 
-We currently support endpoints for Bedrock (Claude) in `LLMServer` file. We also show support for custom OpenLlama and LlamaV2 endpoints in the folder but please avoid using aside than for debugging.
+We currently support endpoints for Bedrock (Claude) in `LLMServer` file. 
 The only thing needed to bring your own is a class, with an `inference` function that takes a prompt in input and output both the prompt and completed text.
 Modify `LLMExamGenerator` class in `ExamGenerator/question_generator.py` to incorporate it.
 Different LLM generate different types of questions. Hence, you might want to modify the raw exam parsing in `ExamGenerator/multi_choice_questions.py`.
