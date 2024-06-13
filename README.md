@@ -2,9 +2,18 @@
 
 This repository is the companion of the ICML 2024 paper [Automated Evaluation of Retrieval-Augmented Language Models with Task-Specific Exam Generation](https://arxiv.org/abs/2405.13622)
 
-Goal: For a given knowledge corpus, i-leverage an LLM to generate an multi-choice exam associated with the task of interest, ii-evaluate variants of RaG systems on this exam, iii-evaluate and iteratively improve the exam. The only thing you need to experiment with this code is a `json` file with your knowledge corpus in the format described bellow.
+<p align="center">
+  <img src="images/generation_summary.png" alt="Alt Text" width="800"/>
+</p>
 
-## Package Structure
+**Goal**: For a given knowledge corpus:
+* Leverage an LLM to generate an multi-choice exam associated with the task of interest
+* Evaluate variants of RaG systems on this exam
+* Evaluate and iteratively improve the exam.
+
+The only thing you need to experiment with this code is a `json` file with your knowledge corpus in the format described bellow.
+
+## I - Package Structure
 
 * `Data`: For each use case, contains:
   * Preprocessing Code
@@ -16,7 +25,7 @@ Goal: For a given knowledge corpus, i-leverage an LLM to generate an multi-choic
 * `LLMServer`: Unified LLM endpoints to generate the exam.
 * `RetrievalSystems`: Unified Retrieval System classes (eg DPR, BM25, Embedding Similarity...).
 
-## I - Exam Data Generation Process
+## II - Exam Data Generation Process
 
 We illustrate our methodology on 4 tasks of interest: AWS DevOPS Troubleshooting, StackExchange Q&A, Sec Filings Q&A and Arxiv Q&A. We then show how to adapt the methodology to any task.
 
@@ -109,7 +118,7 @@ Modify `LLMExamGenerator` class in `ExamGenerator/question_generator.py` to inco
 Different LLM generate different types of questions. Hence, you might want to modify the raw exam parsing in `ExamGenerator/multi_choice_questions.py`.
 You can experiment using `failed_questions.ipynb` notebook from `ExamGenerator`.
 
-## III - Exam Evaluation Process
+## IV - Exam Evaluation Process
 
 We leverage [lm-harness](https://github.com/EleutherAI/lm-evaluation-harness/tree/big-refactor) package to evaluate the (LLM&Retrieval) system on the generated exam.
 To do, follow the next steps:
