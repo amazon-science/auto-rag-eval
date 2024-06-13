@@ -1,0 +1,84 @@
+group: DevOpsRagExam
+task:
+- dataset_kwargs: &id001
+    data_files:
+      test: exam.json
+  dataset_path: /home/ubuntu/workspace/OpenAssistantEndpoint/MultiChoiceExam/DevOpsData/openllama_2023090805/
+  doc_to_choice: '{{choices}}'
+  doc_to_target: '{{correct_answer}}'
+  doc_to_text: !function preprocess_exam.make_prompt_rag_dpr
+  group: &id002
+  - multiple_choice
+  - DevOps
+  metric_list: &id003
+  - aggregation: mean
+    higher_is_better: 'true'
+    metric: acc
+  - aggregation: mean
+    higher_is_better: 'true'
+    metric: acc_norm
+  output_type: multiple_choice
+  task: DevOpsExam_rag_dpr_openllama
+  test_split: test
+  training_split: null
+  validation_split: null
+- dataset_kwargs: *id001
+  dataset_path: /home/ubuntu/workspace/OpenAssistantEndpoint/MultiChoiceExam/DevOpsData/openllama_2023090805/
+  doc_to_choice: '{{choices}}'
+  doc_to_target: '{{correct_answer}}'
+  doc_to_text: !function preprocess_exam.make_prompt_rag_siamese
+  group: *id002
+  metric_list: *id003
+  output_type: multiple_choice
+  task: DevOpsExam_rag_siamese_openllama
+  test_split: test
+  training_split: null
+  validation_split: null
+- dataset_kwargs: *id001
+  dataset_path: /home/ubuntu/workspace/OpenAssistantEndpoint/MultiChoiceExam/DevOpsData/openllama_2023090805/
+  doc_to_choice: '{{choices}}'
+  doc_to_target: '{{correct_answer}}'
+  doc_to_text: !function preprocess_exam.make_prompt_rag_bm25
+  group: *id002
+  metric_list: *id003
+  output_type: multiple_choice
+  task: DevOpsExam_rag_bm25_openllama
+  test_split: test
+  training_split: null
+  validation_split: null
+- dataset_kwargs: *id001
+  dataset_path: /home/ubuntu/workspace/OpenAssistantEndpoint/MultiChoiceExam/DevOpsData/llamav2_2023090805/
+  doc_to_choice: '{{choices}}'
+  doc_to_target: '{{correct_answer}}'
+  doc_to_text: !function preprocess_exam.make_prompt_rag_dpr
+  group: *id002
+  metric_list: *id003
+  output_type: multiple_choice
+  task: DevOpsExam_rag_dpr_llamav2
+  test_split: test
+  training_split: null
+  validation_split: null
+- dataset_kwargs: *id001
+  dataset_path: /home/ubuntu/workspace/OpenAssistantEndpoint/MultiChoiceExam/DevOpsData/llamav2_2023090805/
+  doc_to_choice: '{{choices}}'
+  doc_to_target: '{{correct_answer}}'
+  doc_to_text: !function preprocess_exam.make_prompt_rag_siamese
+  group: *id002
+  metric_list: *id003
+  output_type: multiple_choice
+  task: DevOpsExam_rag_siamese_llamav2
+  test_split: test
+  training_split: null
+  validation_split: null
+- dataset_kwargs: *id001
+  dataset_path: /home/ubuntu/workspace/OpenAssistantEndpoint/MultiChoiceExam/DevOpsData/llamav2_2023090805/
+  doc_to_choice: '{{choices}}'
+  doc_to_target: '{{correct_answer}}'
+  doc_to_text: !function preprocess_exam.make_prompt_rag_bm25
+  group: *id002
+  metric_list: *id003
+  output_type: multiple_choice
+  task: DevOpsExam_rag_bm25_llamav2
+  test_split: test
+  training_split: null
+  validation_split: null

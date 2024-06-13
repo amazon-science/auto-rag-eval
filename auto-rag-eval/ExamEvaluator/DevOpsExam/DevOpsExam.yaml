@@ -1,0 +1,60 @@
+group: DevOpsExam
+task:
+- dataset_kwargs: &id001
+    data_files:
+      test: exam.json
+  dataset_path: /home/ubuntu/workspace/OpenAssistantEndpoint/MultiChoiceExam/DevOpsData/openllama_090805/
+  doc_to_choice: '{{choices}}'
+  doc_to_target: '{{correct_answer}}'
+  doc_to_text: !function preprocess_exam.make_prompt_closed_book
+  group: &id002
+  - multiple_choice
+  - DevOps
+  metric_list: &id003
+  - aggregation: mean
+    higher_is_better: 'true'
+    metric: acc
+  - aggregation: mean
+    higher_is_better: 'true'
+    metric: acc_norm
+  output_type: multiple_choice
+  task: DevOpsExam_closed_book_openllama
+  test_split: test
+  training_split: null
+  validation_split: null
+- dataset_kwargs: *id001
+  dataset_path: /home/ubuntu/workspace/OpenAssistantEndpoint/MultiChoiceExam/DevOpsData/openllama_090805/
+  doc_to_choice: '{{choices}}'
+  doc_to_target: '{{correct_answer}}'
+  doc_to_text: !function preprocess_exam.make_prompt_open_book
+  group: *id002
+  metric_list: *id003
+  output_type: multiple_choice
+  task: DevOpsExam_open_book_openllama
+  test_split: test
+  training_split: null
+  validation_split: null
+- dataset_kwargs: *id001
+  dataset_path: /home/ubuntu/workspace/OpenAssistantEndpoint/MultiChoiceExam/DevOpsData/llamav2_090805/
+  doc_to_choice: '{{choices}}'
+  doc_to_target: '{{correct_answer}}'
+  doc_to_text: !function preprocess_exam.make_prompt_closed_book
+  group: *id002
+  metric_list: *id003
+  output_type: multiple_choice
+  task: DevOpsExam_closed_book_llamav2
+  test_split: test
+  training_split: null
+  validation_split: null
+- dataset_kwargs: *id001
+  dataset_path: /home/ubuntu/workspace/OpenAssistantEndpoint/MultiChoiceExam/DevOpsData/llamav2_090805/
+  doc_to_choice: '{{choices}}'
+  doc_to_target: '{{correct_answer}}'
+  doc_to_text: !function preprocess_exam.make_prompt_open_book
+  group: *id002
+  metric_list: *id003
+  output_type: multiple_choice
+  task: DevOpsExam_open_book_llamav2
+  test_split: test
+  training_split: null
+  validation_split: null
