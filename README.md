@@ -25,36 +25,32 @@ We illustrate our methodology on 4 tasks of interest: AWS DevOPS Troubleshooting
 Run the commands bellow, where `question-date` is the data with the raw data generation. Add `--save-exam` if you want to save the exam and remove it if you're only interested by analytics.
 
 ```bash
-cd src/llm_automated_exam_evaluation/Data/
+cd auto-rag-eval
 rm -rf Data/StackExchange/KnowledgeCorpus/main/*
 python3 -m Data.StackExchange.preprocessor
 python3 -m ExamGenerator.question_generator --task-domain StackExchange
-python3 -m ExamGenerator.multi_choice_exam --task-domain StackExchange --question-date 2023091223 --save-exam
+python3 -m ExamGenerator.multi_choice_exam --task-domain StackExchange --question-date "question-date" --save-exam
 ```
 
-### DevOps
-
-To generate documentation from HTML data:
-
-```bash
-cd src/llm_automated_exam_evaluation/Data/
-rm -rf Data/DevOps/KnowledgeCorpus/main/*
-python3 -m Data.DevOps.html_parser
-python3 -m ExamGenerator.question_generator --task-domain DevOps
-python3 -m ExamGenerator.multi_choice_exam --task-domain DevOps --question-date 2023090805 --save-exam
-```
-
-If you want to generate documentation from QnA Corpus instead, just use `OldDevOps` instead of `DevOps`.`
-Note that we filter out on length for StackExchange whereas we split into paragraphs for DevOps.
 
 ### Arxiv
 
 ```bash
-cd src/llm_automated_exam_evaluation/
-rm -rf Data/StackExchange/KnowledgeCorpus/main/*
+cd auto-rag-eval
+rm -rf Data/Arxiv/KnowledgeCorpus/main/*
 python3 -m Data.Arxiv.preprocessor
 python3 -m ExamGenerator.question_generator --task-domain Arxiv
-python3 -m ExamGenerator.multi_choice_exam --task-domain Arxiv --question-date 2023091905 --save-exam
+python3 -m ExamGenerator.multi_choice_exam --task-domain Arxiv --question-date "question-date" --save-exam
+```
+
+### Sec Filings
+
+```bash
+cd auto-rag-eval
+rm -rf Data/SecFilings/KnowledgeCorpus/main/*
+python3 -m Data.SecFilings.preprocessor
+python3 -m ExamGenerator.question_generator --task-domain SecFilings
+python3 -m ExamGenerator.multi_choice_exam --task-domain SecFilings --question-date "question-date" --save-exam
 ```
 
 ### Add you own task MyOwnTask
@@ -79,7 +75,7 @@ Store in `MyOwnTask/KnowledgeCorpus/main` a `json` file, with contains a list of
 ```bash
 {'source': 'my_own_source',
 'docs_id': 'Doc1022',
-'title': 'Cloud Desktop Set Up',
+'title': 'Dev Desktop Set Up',
 'section': 'How to [...]',
 'text': "Documentation Text, should be long enough to make informative questions but shorter enough to fit into context",
 'start_character': 'N/A',
