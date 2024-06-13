@@ -1,4 +1,4 @@
-# Automated Exam Evaluation for Large Language Model
+# Automated Evaluation of Retrieval-Augmented Language Models with Task-Specific Exam Generation
 
 Goal: For a given knowledge corpus, i-leverage an LLM to generate an multi-choice exam and ii-evaluate variants of RaG systems on this Exam. The only thing you need to experiment with this code is a `json` file with your knowledge corpus in the format described bellow.
 
