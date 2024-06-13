@@ -1,6 +1,8 @@
 # Automated Evaluation of Retrieval-Augmented Language Models with Task-Specific Exam Generation
 
-Goal: For a given knowledge corpus, i-leverage an LLM to generate an multi-choice exam and ii-evaluate variants of RaG systems on this Exam. The only thing you need to experiment with this code is a `json` file with your knowledge corpus in the format described bellow.
+This repository is the companion of the ICML 2024 paper [Automated Evaluation of Retrieval-Augmented Language Models with Task-Specific Exam Generation](https://arxiv.org/abs/2405.13622)
+
+Goal: For a given knowledge corpus, i-leverage an LLM to generate an multi-choice exam associated with the task of interest, ii-evaluate variants of RaG systems on this exam, iii-evaluate and iteratively improve the exam. The only thing you need to experiment with this code is a `json` file with your knowledge corpus in the format described bellow.
 
 ## Package Structure
 
